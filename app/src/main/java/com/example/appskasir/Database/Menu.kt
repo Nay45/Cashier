@@ -8,5 +8,6 @@ data class Menu (
     val id: Int,
     val name: String,
     val desc: String,
-    val price: String
+    val price: Int,
+    var isSelected: Boolean = false
 )

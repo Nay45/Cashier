@@ -8,7 +8,7 @@ import com.example.appskasir.Database.Meja
 import com.example.appskasir.R
 import kotlinx.android.synthetic.main.adapter_menu.view.*
 
-class AdapterTable(private var items: ArrayList<Meja>, private val listener: OnAdapterListener) :
+class AdapterTable(private var items: ArrayList<Meja>, private val listener: OnAdapterListener, private val isAdmin: Boolean) :
     RecyclerView.Adapter<AdapterTable.TableViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableViewHolder {
@@ -27,6 +27,11 @@ class AdapterTable(private var items: ArrayList<Meja>, private val listener: OnA
     override fun onBindViewHolder(holder: TableViewHolder, position: Int) {
         val iTable = items[position]
         holder.view.tv_item_name.text = iTable.name
+
+        if (isAdmin.equals(false)) {
+            holder.view.iconUpdate.visibility = View.GONE
+            holder.view.iconDel.visibility = View.GONE
+        }
 
         holder.view.iconUpdate.setOnClickListener {
             listener.onUpdate(iTable)

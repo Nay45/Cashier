@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kindOfUser">
+        <item>Role</item>
+        <item>Cashier</item>
+        <item>Manager</item>
+        <item>Admin</item>
+    </string-array>
+</resources>

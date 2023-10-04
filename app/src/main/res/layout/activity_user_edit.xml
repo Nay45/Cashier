@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".UserEditActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editUser"
+        android:text="Edit User"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editUser"
         android:id="@+id/linear1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvSignUp"
-            android:text="SignUp"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            android:layout_margin="16dp"
-            android:textColor="?attr/colorOnSecondary"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"/>
-
         <EditText
-            android:id="@+id/edtName"
+            android:id="@+id/edtNameUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Name"
+            android:hint="Username"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:textColor="?attr/colorOnSecondary"
@@ -39,28 +44,29 @@
             android:background="@drawable/edittextstyle"/>
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtEmailUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="Email"
             android:imeOptions="actionNext"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textColor="?attr/colorOnSecondary"
             android:textColorHint="#cccccc"
+            android:maxLength="20"
             android:background="@drawable/edittextstyle"/>
 
         <EditText
-            android:id="@+id/edtPass"
+            android:id="@+id/edtPassUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="Pass"
             android:imeOptions="actionNext"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColor="?attr/colorOnSecondary"
             android:textColorHint="#cccccc"
-            android:maxLength="16"
+            android:maxLength="20"
             android:background="@drawable/edittextstyle"/>
 
         <Spinner
@@ -71,21 +77,13 @@
             android:entries="@array/kindOfUser"
             android:layout_marginBottom="10dp"/>
 
-        <CheckBox
-            android:id="@+id/showpass"
-            android:layout_marginTop="10sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Pass"
-            android:textSize="15sp"/>
-
         <Button
-            android:id="@+id/btnSaveUser"
+            android:id="@+id/btnUpdateUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="Update"
             android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

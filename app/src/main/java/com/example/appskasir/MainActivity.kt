@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         PassInput = findViewById(R.id.pass)
         ShowPass = findViewById(R.id.showpass)
 
-//        LOGIN BUTTON (IDK)
+//        LOGIN BUTTON
         btnSend.setOnClickListener {
             if(email.text.toString().isNotEmpty() && PassInput.text.toString().isNotEmpty()){
                 var list: List<User> = db.cafeDao().login(email.text.toString(), PassInput.text.toString())
@@ -44,8 +44,10 @@ class MainActivity : AppCompatActivity() {
                     val moveIntent = Intent(this, HomeActivity::class.java)
                     val name = list[0].name
                     val id_user = list[0].id
+                    val role = list[0].role
                     moveIntent.putExtra("name", name)
                     moveIntent.putExtra("id_user", id_user)
+                    moveIntent.putExtra("role", role)
                     startActivity(moveIntent)
                 }
                 else{

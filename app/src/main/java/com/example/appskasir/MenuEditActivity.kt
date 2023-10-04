@@ -93,9 +93,9 @@ class MenuEditActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val nameInput = binding.edtName.text.toString()
             val descInput = binding.edtDesc.text.toString()
-            val priceInput = binding.edtPrice.text.toString()
+            val priceInput = binding.edtPrice.text.toString().toInt()
 
-            if (nameInput.isEmpty() || descInput.isEmpty() || priceInput.isEmpty()) {
+            if (nameInput.isEmpty() || descInput.isEmpty() || priceInput == null) {
                 Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
             } else {
                 CoroutineScope(Dispatchers.IO).launch {
@@ -115,9 +115,9 @@ class MenuEditActivity : AppCompatActivity() {
         binding.btnUpdate.setOnClickListener {
             val nameInput = binding.edtName.text.toString()
             val descInput = binding.edtDesc.text.toString()
-            val priceInput = binding.edtPrice.text.toString()
+            val priceInput = binding.edtPrice.text.toString().toInt()
 
-            if (nameInput.isEmpty() || descInput.isEmpty() || priceInput.isEmpty()) {
+            if (nameInput.isEmpty() || descInput.isEmpty() || priceInput == null) {
                 Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
             } else {
                 CoroutineScope(Dispatchers.IO).launch {
@@ -157,14 +157,14 @@ class MenuEditActivity : AppCompatActivity() {
     fun getMenu(){
         Id = intent.getIntExtra("intent_id", 0)
         CoroutineScope(Dispatchers.IO).launch {
-            val menu = db.cafeDao().getMenu(Id)[0]
+            val menu = db.cafeDao().getMenu(Id)
             binding.viewTitle.setText(menu.name)
             binding.viewDesc.setText(menu.desc)
             binding.viewPrice.setText("Rp " + menu.price)
 
             binding.edtName.setText(menu.name)
             binding.edtDesc.setText(menu.desc)
-            binding.edtPrice.setText(menu.price)
+            binding.edtPrice.setText(menu.price.toString())
 
         }
     }
